@@ -1,8 +1,8 @@
 package com.mkss.formacion.rest.servidoresrestservlets.repository;
 
-public class AccesoDatosException extends RuntimeException {
 
-	private static final long serialVersionUID = 6008464775930564253L;
+
+public class AccesoDatosException extends RuntimeException {
 
 	public AccesoDatosException() {
 		super();
@@ -24,5 +24,7 @@ public class AccesoDatosException extends RuntimeException {
 	public AccesoDatosException(Throwable cause) {
 		super(cause);
 	}
+
+	private static final long serialVersionUID = 6111016144913690748L;
 
 }
