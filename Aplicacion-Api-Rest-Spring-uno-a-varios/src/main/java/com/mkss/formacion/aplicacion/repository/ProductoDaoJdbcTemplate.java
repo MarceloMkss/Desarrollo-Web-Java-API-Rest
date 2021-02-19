@@ -18,7 +18,7 @@ public class ProductoDaoJdbcTemplate implements Dao<Producto> {
 		return jdbc.query("SELECT * \r\n"
 				+ "FROM productos p\r\n"
 				+ "LEFT JOIN categorias c ON p.categoria_id = c.id\r\n", (rs, rowNum) -> 
-				new Producto(rs.getLong("p.id"), rs.getString("p.nombre"), rs.getBigDecimal("p.precio"),
+				new Producto(rs.getLong("p.id"), rs.getString("p.nombre"),rs.getString("P.descripcion"),rs.getBigDecimal("p.precio"),
 						new Categoria(rs.getLong("c.id"), rs.getString("c.nombre"), rs.getString("c.descripcion"))));
 	}
 
@@ -28,7 +28,7 @@ public class ProductoDaoJdbcTemplate implements Dao<Producto> {
 				+ "FROM productos p\r\n"
 				+ "LEFT JOIN categorias c ON p.categoria_id = c.id\r\n"
 				+ "WHERE p.id = ?", (rs, rowNum) -> 
-				new Producto(rs.getLong("p.id"), rs.getString("p.nombre"), rs.getBigDecimal("p.precio"),
+				new Producto(rs.getLong("p.id"), rs.getString("p.nombre"),rs.getString("P.descripcion"), rs.getBigDecimal("p.precio"),
 						new Categoria(rs.getLong("c.id"), rs.getString("c.nombre"), rs.getString("c.descripcion"))), id);
 	}
 
