@@ -29,9 +29,9 @@ public class Categoria {
 	private String nombre;
 	private String descripcion;
 
-	@ToString.Exclude
-	@EqualsAndHashCode.Exclude
-	@OneToMany(mappedBy = "categoria") // , fetch = FetchType.LAZY)
+	@ToString.Exclude // esa coleccion la quiero excluir del metodo toString.. porque me lanza un lazy, pero no lo quiero que me hagan un lazy si no lo quiero.
+	@EqualsAndHashCode.Exclude // excluyo tambien los hashcode de lombok
+	@OneToMany(mappedBy = "categoria") // , fetch = FetchType.LAZY) // cuando es LAZY me trae todo solo los datos categoria, caso quiera pedir el producto tengo que poner un GetProductos
 	private final Set<Producto> productos = new HashSet<>();
 
 }
